@@ -1,0 +1,283 @@
+<html>
+<head>
+<title>Pagina_S06</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+ background-image:url("walpaper2.jpg");
+ background-size:cover;
+  margin: 20px;
+ background-color:white;
+  background-repeat:no-repeat;
+}
+
+.h1{
+    background: linear-gradient(to bottom, white, #3D2B1F);
+        color: white;
+border: 1px solid #A67B5B;
+text-align:center;
+image-align:left;
+}
+
+.h2{
+  background-color:#C2B280;
+border: 1px solid #A67B5B;
+text-align:center;
+}
+
+/* Style the header */
+.header {
+         
+        height:200px;
+        background-position: center;
+        border: 2px solid #A67B5B;
+    } 
+
+
+/* Style the top navigation bar */
+.topnav {
+  width:1308px;
+  overflow:auto;
+  background-color: #4B3621;
+  border: 2px solid #A67B5B;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color:white;
+  text-align: center;
+  padding: 10px 111px;
+  text-decoration: bold;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: white;
+  color:#C2B280;
+  border: 2px solid #A67B5B;
+ 
+}
+
+.accordion {
+  background-color: #E3DEC6;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+   border: 1px solid #A67B5B;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #8D8468;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #593C39;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: #E3DAC9;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: rgb(0, 163, 108);
+  color: white;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: Black;
+  color: #228b22;
+}
+
+img {
+  height:10px;
+}
+
+
+div.gallery {
+  margin: 1px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 200px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+
+div.gallery img {
+  width: 150%;
+  height: auto;
+}
+
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+</style>
+</head>
+<body>
+
+<div class="h1">
+<img src="header.jpg">
+<h2 style="font-size:30px;">Cabinet de avocatură</h2>
+</div>
+
+
+<div class="gallery">
+    <img src="img1.jpg" alt="Forest" width="200" height="200">
+</div>
+
+<div class="gallery">
+    <img src="img2.jpg" width="400" height="500">
+</div>
+
+<div class="gallery">
+    <img src="img3.jpg" width="400" height="500">
+</div>
+
+<div class="gallery">
+    <img src="img4.jpg" width="400" height="500">
+</div>
+
+<div class="gallery">
+    <img src="img5.jpg"  width="400" height="500">
+</div>
+
+<div class="gallery">
+    <img src="img8.jpg" width="400" height="500">
+</div>
+
+
+<div class="topnav">
+  <a href="file:///E:/Proiect%20PHP/tabel%20persoane.html">Persoane</a>
+  <a href="file:///E:/Proiect%20PHP/tabel%20cj.html">Contracte de asistență juridică</a>
+  <a href="file:///E:/Proiect%20PHP/tabel%20cm.html">Contracte de muncă</a>
+  <a href="file:///E:/Proiect%20PHP/tabel%20rate.html">Rate</a>
+</div>
+<br>
+<br>
+
+<div class="h2">
+<h2 style="font-size:20px;">Menu exerciții</h2>
+</div>
+
+<button class="accordion">Exercițiul 3</button>
+<div class="panel">
+<p>Exercițiul 3.a) Să se găsească detaliile pentru contractele de asistență juridică din luna octombrie 2022
+ce au onorar cuprins între 900 și 1500 în ordine crescătoare a datei.</td><a href="http://localhost/colocviu%20s06/6.03a.php" class="next">Afiseaza &raquo;</a></p></form>
+<p><form action="http://localhost/colocviu%20s06/6.03b.php" method=post>Exercițiul 3.b) Să se găsească detaliile contractelor de muncă pentru funcțiile ce încep cu litera ‘a’:<input type="text" name="functie_a" size="10" maxlength="10"></form></p>
+</div>
+
+<button class="accordion">Exercițiul 4</button>
+<div class="panel">
+<p>Exercițiul 4.a) Să se găsească numele angajaților cu data de angajare în anul 2022 și care nu sunt 
+avocați.<a href="http://localhost/colocviu%20s06/6.04a.php" class="next">Afiseaza &raquo;</a></p>
+ <p>Exercițiul 4.b) Să se găsească perechi de contracte juridice (id_cj1, id_cj2) pentru clienți diferiți dar
+același avocat. O pereche este unică în rezultat.<a href="http://localhost/colocviu%20s06/6.04b.php" class="next">Afiseaza &raquo;</a></p>
+</div>
+
+<button class="accordion">Exercițiul 5</button>
+<div class="panel">
+<p><form action="http://localhost/colocviu%20s06/6.05a.php" method=post>Exercițiul 5.a) Să se găsească contractele de muncă care au acelasi comision</p><p>Introduceti comisionul:<input type="text" name="nr_comision" size="5" maxlength="10"></form></p>
+ <p>Exercițiul 5.b) Să se găsească numele avocaților care au contract de asistență juridică cu 
+onorar maxim.<a href="http://localhost/colocviu%20s06/6.05b.php" class="next">Afiseaza &raquo;</a></p>
+</div>
+
+<button class="accordion">Exercițiul 6</button>
+<div class="panel">
+<p>Exercițiul 6.a)Sa se afiseze pentru fiecare nume de avocat valoarea medie a salariului pe anul 2022<a href="http://localhost/colocviu%20s06/6.06a.php" class="next">Afiseaza &raquo;</a></p>
+ <p>Exercițiul 6.b)  Să se găsească contractele juridice care nu au fost achitate în întregime.<a href="http://localhost/colocviu%20s06/6.06b.php" class="next">Afiseaza &raquo;</a></p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+<br>
+<div class="center">
+  <div class="pagination">
+ <a href="#">&laquo;</a>
+  <a href="#">1</a>
+  <a href="#">&raquo;</a>
+  </div>
+</div>
+
+</body>
+</html>
+

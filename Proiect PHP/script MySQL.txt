@@ -1,0 +1,104 @@
+ CREATE TABLE Persoana
+  (id_p double NOT NULL,
+  nume VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  adresa VARCHAR(50) NOT NULL );
+
+  CREATE TABLE Contract_j
+  (id_cj double NOT NULL,
+  data DATE NOT NULL,
+  obiect VARCHAR(50) NOT NULL,
+  onorar float NOT NULL,
+  nr_pagini double NOT NULL,
+  id_client double NOT NULL,
+  id_avocat double NOT NULL);
+
+  CREATE TABLE Contract_m
+  (id_cm double NOT NULL,
+  data DATE NOT NULL,
+  functie VARCHAR(50) NOT NULL,
+  salar_baza float NOT NULL,
+  comision float(8,2) NOT NULL,
+  id_angajat double NOT NULL);
+
+
+  CREATE TABLE Rata
+  (id_cj double NOT NULL,
+  id_r double NOT NULL,
+  data DATE NOT NULL,
+  suma float NOT NULL);
+
+  ALTER TABLE Persoana 
+  ADD CONSTRAINT pk_persoana PRIMARY KEY(id_p);
+
+  ALTER TABLE Contract_j 
+  ADD CONSTRAINT pk_contract_j PRIMARY KEY(id_cj);
+
+  ALTER TABLE Contract_m 
+  ADD CONSTRAINT pk_contract_m PRIMARY KEY(id_cm);
+
+  ALTER TABLE Rata
+  ADD CONSTRAINT pk_rata PRIMARY KEY(id_r);
+
+  ALTER TABLE Rata 
+  ADD CONSTRAINT fk_rata FOREIGN KEY(id_cj) REFERENCES Contract_j(id_cj) ON DELETE CASCADE;
+
+  ALTER TABLE Contract_j
+  ADD CONSTRAINT fk_id_client FOREIGN KEY (id_client) REFERENCES Persoana(id_p) ON DELETE CASCADE;
+ 
+  ALTER TABLE Contract_j
+  ADD CONSTRAINT fk_id_avocat FOREIGN KEY (id_avocat) REFERENCES Persoana(id_p) ON DELETE CASCADE;
+
+  ALTER TABLE Contract_m
+  ADD CONSTRAINT fk_id_angajat FOREIGN KEY (id_angajat) REFERENCES Persoana(id_p) ON DELETE CASCADE;
+ 
+  ALTER TABLE Persoana
+  ADD telefon VARCHAR(15);
+
+  ALTER TABLE Contract_j 
+  ADD CONSTRAINT check_obiect CHECK (obiect IN('actiune civila','actiune penala'));
+  
+  ALTER TABLE Contract_j 
+  ADD CONSTRAINT check_onorar CHECK (LOWER(obiect)!='actiune penala' OR onorar>500);
+
+  INSERT INTO Persoana(id_p,nume,email,adresa,telefon) VALUES(2,'Pop Ioana','pop.ioana09@yahoo.com','str Observatorului, nr 14','0722567128');
+  INSERT INTO Persoana(id_p,nume,email,adresa,telefon) VALUES(3,'Tarta Antonia','anto.t16@yahoo.com','str Principala, nr 34','0734567138');
+  INSERT INTO Persoana(id_p,nume,email,adresa,telefon) VALUES(4,'Ianchis Alexandru','ianchis_alex12@yahoo.com','str Mihai Eminescu, nr 128','0784547239');
+  INSERT INTO Persoana(id_p,nume,email,adresa,telefon) VALUES(5,'Breje Tania','b_tania11@yahoo.com','str Giordano Bruno, nr 10','0789464447');
+  INSERT INTO Persoana(id_p,nume,email,adresa,telefon) VALUES(6,'Todorutiu Daniela','danielatodorutiu@yahoo.com','str Porolissum, nr 219','0747064447');
+  INSERT INTO Persoana(id_p,nume,email,adresa,telefon) VALUES(7,'Filip David','david.filip.23@yahoo.com','str Frunzisului, nr 13','0757324437');
+  INSERT INTO Persoana(id_p,nume,email,adresa,telefon) VALUES(8,'Miclea Paula','m.paula_15@yahoo.com','str Teiului, nr 23','0767354837');
+  INSERT INTO Persoana(id_p,nume,email,adresa,telefon) VALUES(9,'Pop Cristian','popcristian_12@yahoo.com','str Mihai Viteazu, nr 223','0767254897');
+  INSERT INTO Persoana(id_p,nume,email,adresa,telefon) VALUES(10,'Matis Oana','matisoana06@yahoo.com','str Giordano Bruno, nr 98','0787464449');
+ 
+  INSERT INTO Contract_j(id_cj,data,obiect,onorar,nr_pagini,id_client,id_avocat) VALUES(1,'2022-10-01','actiune civila',200,50,4,3);
+  INSERT INTO Contract_j(id_cj,data,obiect,onorar,nr_pagini,id_client,id_avocat) VALUES(2,'2022-10-21','actiune civila',1000,100,8,5);
+  INSERT INTO Contract_j(id_cj,data,obiect,onorar,nr_pagini,id_client,id_avocat) VALUES(3,'2022-11-12','actiune penala',1000,20,7,5);
+  INSERT INTO Contract_j(id_cj,data,obiect,onorar,nr_pagini,id_client,id_avocat) VALUES(4,'2021-06-07','actiune civila',100,50,2,3);
+  INSERT INTO Contract_j(id_cj,data,obiect,onorar,nr_pagini,id_client,id_avocat) VALUES(5,'2021-11-22','actiune civila',250,50,3,6);
+  INSERT INTO Contract_j(id_cj,data,obiect,onorar,nr_pagini,id_client,id_avocat) VALUES(6,'2022-08-09','actiune civila',200,50,4,6);
+  INSERT INTO Contract_j(id_cj,data,obiect,onorar,nr_pagini,id_client,id_avocat) VALUES(7,'2020-05-20','actiune civila',100,30,2,10);
+  INSERT INTO Contract_j(id_cj,data,obiect,onorar,nr_pagini,id_client,id_avocat) VALUES(8,'2021-03-12','actiune penala',700,50,7,5);
+  INSERT INTO Contract_j(id_cj,data,obiect,onorar,nr_pagini,id_client,id_avocat) VALUES(9,'2021-05-30','actiune civila',400,150,9,5);
+  INSERT INTO Contract_j(id_cj,data,obiect,onorar,nr_pagini,id_client,id_avocat) VALUES(10,'2021-05-30','actiune civila',600,450,8,10);
+  INSERT INTO Contract_j(id_cj,data,obiect,onorar,nr_pagini,id_client,id_avocat) VALUES(11,'2022-07-25','actiune penala',850,350,2,10);
+  INSERT INTO Contract_j(id_cj,data,obiect,onorar,nr_pagini,id_client,id_avocat) VALUES(12,'2022-10-25','actiune penala',1000,50,4,3);
+  
+  INSERT INTO Contract_m(id_cm,data,functie,salar_baza,comision,id_angajat) VALUES(1,'2021-08-06','avocat',20000,15,3);
+  INSERT INTO Contract_m(id_cm,data,functie,salar_baza,comision,id_angajat) VALUES(2,'2021-03-18','avocat',1340,10,5);
+  INSERT INTO Contract_m(id_cm,data,functie,salar_baza,comision,id_angajat) VALUES(3,'2021-03-16','angajat',2890,20,2);
+  INSERT INTO Contract_m(id_cm,data,functie,salar_baza,comision,id_angajat) VALUES(4,'2021-06-25','angajat',3400,20,4);
+  INSERT INTO Contract_m(id_cm,data,functie,salar_baza,comision,id_angajat) VALUES(5,'2021-09-09','avocat',15000,25,6);
+  INSERT INTO Contract_m(id_cm,data,functie,salar_baza,comision,id_angajat) VALUES(6,'2022-09-09','angajat',15000,20,7);
+  INSERT INTO Contract_m(id_cm,data,functie,salar_baza,comision,id_angajat) VALUES(7,'2022-07-21','angajat',13000,10,8);  
+  INSERT INTO Contract_m(id_cm,data,functie,salar_baza,comision,id_angajat) VALUES(8,'1990-04-17','avocat',34000,30,10);  
+  
+  INSERT INTO Rata(id_cj,id_r,data,suma) VALUES(1,1,'2022-10-01',200);
+  INSERT INTO Rata(id_cj,id_r,data,suma) VALUES(2,2,'2022-10-21',500);
+  INSERT INTO Rata(id_cj,id_r,data,suma) VALUES(3,3,'2022-11-12',500);
+  INSERT INTO Rata(id_cj,id_r,data,suma) VALUES(3,4,'2022-11-13',500);
+  INSERT INTO Rata(id_cj,id_r,data,suma) VALUES(4,5,'2021-10-22',200);
+  INSERT INTO Rata(id_cj,id_r,data,suma) VALUES(5,6,'2021-11-21',200);
+  INSERT INTO Rata(id_cj,id_r,data,suma) VALUES(6,7,'2020-05-20',100);
+  INSERT INTO Rata(id_cj,id_r,data,suma) VALUES(7,8,'2020-07-25',425);
+  INSERT INTO Rata(id_cj,id_r,data,suma) VALUES(7,9,'2020-07-25',425);

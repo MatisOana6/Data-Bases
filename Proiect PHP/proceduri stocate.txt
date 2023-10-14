@@ -1,0 +1,17 @@
+DELIMITER $$
+--
+-- Proceduri
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Get603a` ()  BEGIN
+SELECT *
+FROM Contract_j
+WHERE data BETWEEN '2022-10-01' AND '2022-10-31' AND onorar BETWEEN 900 AND 1500
+ORDER BY data ASC;
+    END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Get604a` ()  BEGIN
+ SELECT nume
+  FROM Persoana
+  JOIN Contract_m ON id_p=id_angajat
+  WHERE data BETWEEN '2022-01-01' AND '2022-12-31' AND functie!='avocat';
+    END$$
